@@ -1,7 +1,7 @@
 const { getAllFiles, saveFile } = require( '../../models/files.model');
 
 async function httpGetAllFiles(req, res) {
-    return res.status(200).json(await getAllFiles());
+    return res.status(200).send(await getAllFiles());
 }
 
 function validFile(file) {
@@ -12,7 +12,7 @@ async function httpSaveFile(req, res) {
     const file = req.body;
     const valid = validFile(file);
     if(!valid) {
-        return res.status(400).json({error: 'Invalid file data', data: {
+        return res.status(400).send({error: 'Invalid file data', data: {
             fileName: !!file.fileName,
             hash: !!file.ipfsHash,
             date: !!file.createdDate
@@ -20,7 +20,7 @@ async function httpSaveFile(req, res) {
     }
 
     saveFile(file);
-    return res.status(200).json(file);
+    return res.status(200).send(file);
 }
 
 module.exports = {
