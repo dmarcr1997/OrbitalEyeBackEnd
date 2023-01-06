@@ -9,5 +9,8 @@ app.use(cors({
 app.use(morgan('combined'));
 app.use(express.json());
 
+app.use('/', (req, res) => {
+    res.send(200).json({message: "Welcome!"})
+})
 app.use('/files', filesRouter);
 module.exports = app;
