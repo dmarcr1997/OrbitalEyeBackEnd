@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const filesRouter = require('./routes/files/files.router');
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:5173'
+    origin: ['http://localhost:5173', 'https://orbital-eye.vercel.app']
 }));
 app.use(morgan('combined'));
 app.use(express.json());
