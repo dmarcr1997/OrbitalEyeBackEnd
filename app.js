@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const filesRouter = require('./files.router');
+const { httpGetAllFiles, httpSaveFile } = require('./files.controller');
+
 const app = express();
 app.use(cors({
     origin: ['http://localhost:5173', 'https://orbital-eye.vercel.app']
@@ -9,8 +10,10 @@ app.use(cors({
 app.use(morgan('combined'));
 app.use(express.json());
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send({message: "Welcome!"})
 })
-app.use('/files', filesRouter);
+app.get('/files', httpGetAllFiles);
+app.post('/files', httpSaveFile);
+
 module.exports = app;
