@@ -5,7 +5,7 @@ async function httpGetAllFiles(req, res) {
 }
 
 function validFile(file) {
-    return file.fileName && file.ipfsHash && file.createdDate && file.creator;
+    return file.fileName && file.ipfsHash && file.createdDate && file.creator && file.subject;
 }
 
 async function httpSaveFile(req, res) {

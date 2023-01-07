@@ -13,6 +13,8 @@ async function saveFile(data) {
         throw new Error('No created date provided');
     } else if (!data.creator) {
         throw new Error('No creator provided');
+    } else if (!data.subject) {
+        throw new Error('No asteroid provided');
     }
 
     await files.updateOne({

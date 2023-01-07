@@ -16,6 +16,10 @@ const fileSchema = new mongoose.Schema({
     createdDate: {
         type: Date,
         required: true,
+    },
+    subject: {
+        type: String,
+        required: true,
     }
 });
 
