@@ -20,6 +20,10 @@ const fileSchema = new mongoose.Schema({
     subject: {
         type: String,
         required: true,
+    },
+    bountyAmt: {
+        type: Number,
+        required: true,
     }
 });
 

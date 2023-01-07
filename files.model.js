@@ -15,6 +15,8 @@ async function saveFile(data) {
         throw new Error('No creator provided');
     } else if (!data.subject) {
         throw new Error('No asteroid provided');
+    } else if (!data.bountyAmt) {
+        throw new Error('No Bounty amount provided');
     }
 
     await files.updateOne({
