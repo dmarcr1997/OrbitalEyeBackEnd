@@ -1,4 +1,4 @@
-const { getAllFiles, saveFile } = require( '../../models/files.model');
+const { getAllFiles, saveFile } = require( './files.model');
 
 async function httpGetAllFiles(req, res) {
     return res.status(200).send(await getAllFiles());
